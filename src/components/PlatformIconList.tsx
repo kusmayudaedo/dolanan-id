@@ -39,13 +39,19 @@ const PlatformIconList = ({ platforms }: Props) => {
 							as={iconMap[platform.slug]}
 							fontWeight='bold'
 							boxSize='16px'
+							key={platform.id}
 						/>
 					))}
 					<Text fontWeight='bold'>+{platforms.length - limitPlatform}</Text>
 				</HStack>
 			) : (
 				platforms.map((platform) => (
-					<Icon as={iconMap[platform.slug]} fontWeight='bold' boxSize='16px' />
+					<Icon
+						as={iconMap[platform.slug]}
+						fontWeight='bold'
+						boxSize='16px'
+						key={platform.id}
+					/>
 				))
 			)}
 		</HStack>
