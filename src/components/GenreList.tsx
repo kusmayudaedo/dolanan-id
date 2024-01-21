@@ -3,7 +3,6 @@ import {
 	List,
 	ListItem,
 	Image,
-	Text,
 	Spinner,
 	Heading,
 	Button,
