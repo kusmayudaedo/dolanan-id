@@ -8,8 +8,7 @@ import {
 	HStack,
 } from '@chakra-ui/react';
 import { BsChevronDown } from 'react-icons/bs';
-import usePlatform from '../hooks/usePlatforms';
-import { Platform } from '../hooks/useGames';
+import usePlatform, { Platform } from '../hooks/usePlatforms';
 import { FaCheck } from 'react-icons/fa';
 
 interface Props {
