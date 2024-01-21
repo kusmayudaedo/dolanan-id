@@ -8,15 +8,18 @@ import {
 	Text,
 } from '@chakra-ui/react';
 import { BsChevronDown } from 'react-icons/bs';
+import { FaCheck } from 'react-icons/fa';
 
 interface Props {
 	onSelectSortOrder: (sortOrder: string) => void;
 	selectedOrder: string;
 }
 
-const SortSelector = ({ onSelectSortOrder, selectedOrder }: Props) => {
+const SortSelector = ({
+	onSelectSortOrder,
+	selectedOrder = '-metacritic',
+}: Props) => {
 	const sortOrders = [
-		{ value: '', label: 'Relevance' },
 		{ value: '-added', label: 'Date added' },
 		{ value: 'name', label: 'Name' },
 		{ value: '-release', label: 'Release date' },
@@ -34,7 +37,7 @@ const SortSelector = ({ onSelectSortOrder, selectedOrder }: Props) => {
 				<HStack spacing='2px'>
 					<Text>Order by:</Text>
 					<Text fontWeight='bold'>
-						{currentSortOrder?.label || 'Relevance'}
+						{currentSortOrder?.label || 'Popularity'}
 					</Text>
 				</HStack>
 			</MenuButton>
@@ -44,7 +47,12 @@ const SortSelector = ({ onSelectSortOrder, selectedOrder }: Props) => {
 						onClick={() => onSelectSortOrder(order.value)}
 						key={order.value}
 					>
-						{order.label}
+						<HStack width='100%' paddingX={1} justifyContent='space-between'>
+							<Text>{order.label}</Text>
+							<Text color='#33ff6d' fontSize='small'>
+								{order.value === selectedOrder ? <FaCheck /> : ''}
+							</Text>
+						</HStack>
 					</MenuItem>
 				))}
 			</MenuList>

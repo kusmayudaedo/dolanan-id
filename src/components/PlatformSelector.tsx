@@ -5,10 +5,12 @@ import {
 	MenuButton,
 	MenuItem,
 	MenuList,
+	HStack,
 } from '@chakra-ui/react';
 import { BsChevronDown } from 'react-icons/bs';
 import usePlatform from '../hooks/usePlatforms';
 import { Platform } from '../hooks/useGames';
+import { FaCheck } from 'react-icons/fa';
 
 interface Props {
 	onSelectPlatform: (platform: Platform | null) => void;
@@ -29,12 +31,17 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
 						Clear
 					</Text>
 				</MenuItem>
-				{data.map((platform) => (
+				{data?.results.map((platform) => (
 					<MenuItem
 						key={platform.id}
 						onClick={() => onSelectPlatform(platform)}
 					>
-						{platform.name}
+						<HStack width='100%' paddingX={1} justifyContent='space-between'>
+							<Text>{platform.name}</Text>
+							<Text color='#33ff6d' fontSize='small'>
+								{platform.id === selectedPlatform?.id ? <FaCheck /> : ''}
+							</Text>
+						</HStack>
 					</MenuItem>
 				))}
 			</MenuList>
