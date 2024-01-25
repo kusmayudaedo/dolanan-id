@@ -9,17 +9,14 @@ import {
 } from '@chakra-ui/react';
 import { BsChevronDown } from 'react-icons/bs';
 import { FaCheck } from 'react-icons/fa';
+import useGameQueryStore from '../store';
 
-interface Props {
-	onSelectSortOrder: (sortOrder: string) => void;
-	selectedOrder: string;
-}
+const SortSelector = () => {
+	const selectedOrder = useGameQueryStore((s) => s.gameQuery.sortOrder);
+	const setSelectedOrder = useGameQueryStore((s) => s.setSortOrder);
 
-const SortSelector = ({
-	onSelectSortOrder,
-	selectedOrder = '-metacritic',
-}: Props) => {
 	const sortOrders = [
+		{ value: '', label: 'Relevance' },
 		{ value: '-added', label: 'Date added' },
 		{ value: 'name', label: 'Name' },
 		{ value: '-release', label: 'Release date' },
@@ -37,14 +34,14 @@ const SortSelector = ({
 				<HStack spacing='2px'>
 					<Text>Order by:</Text>
 					<Text fontWeight='bold'>
-						{currentSortOrder?.label || 'Popularity'}
+						{currentSortOrder?.label || 'Relevance'}
 					</Text>
 				</HStack>
 			</MenuButton>
 			<MenuList>
 				{sortOrders.map((order) => (
 					<MenuItem
-						onClick={() => onSelectSortOrder(order.value)}
+						onClick={() => setSelectedOrder(order.value)}
 						key={order.value}
 					>
 						<HStack width='100%' paddingX={1} justifyContent='space-between'>
