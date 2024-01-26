@@ -14,7 +14,7 @@ const GameCardContainer = ({ children }: Props) => {
 			_hover={{
 				transform: 'scale(1.1)',
 				borderRadius: '40',
-				transition: 'all .2s ease-in-out;',
+				transition: 'transform .15s ease-in-out;',
 				padding: '10px',
 				overflow: 'hidden',
 			}}
