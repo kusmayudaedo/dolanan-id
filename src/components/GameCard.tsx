@@ -12,7 +12,7 @@ interface Props {
 const GameCard = ({ game }: Props) => {
 	return (
 		<Card variant='filled'>
-			<Image src={getCroppedImageUrl(game.background_image)} />
+			<Image src={getCroppedImageUrl(game.background_image)} objectFit='fill' />
 			<CardBody>
 				<HStack justifyContent='space-between' marginBottom={3}>
 					<PlatformIconList
@@ -20,7 +20,7 @@ const GameCard = ({ game }: Props) => {
 					/>
 					<CriticScore score={game.metacritic} />
 				</HStack>
-				<Heading fontSize='2xl'>
+				<Heading fontSize='2xl' textAlign='left'>
 					{game.name} <Emoji rating={game.rating_top} />
 				</Heading>
 			</CardBody>
