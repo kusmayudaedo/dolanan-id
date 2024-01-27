@@ -1,6 +1,6 @@
 import {
 	Box,
-	Button,
+	Flex,
 	GridItem,
 	HStack,
 	Heading,
@@ -28,11 +28,11 @@ const GameDetailPage = () => {
 
 	// !game used so we don't need optional chaining in mark up
 	if (error || !game) throw error;
-	console.log(game.id);
+
 	return (
 		<SimpleGrid columns={{ base: 1, lg: 2 }} spacing={4}>
 			<GridItem>
-				<HStack>
+				<Flex flexWrap='wrap' gap={4}>
 					<Box backgroundColor='white' paddingX={2}>
 						<Text color='black'>
 							{moment(game.released).format('MMM DD, YYYY').toUpperCase()}
@@ -44,9 +44,9 @@ const GameDetailPage = () => {
 					<Text color='gray.500'>
 						AVERAGE PLAY TIME : {game.playtime} HOURS
 					</Text>
-				</HStack>
+				</Flex>
 
-				<Heading fontSize='5xl' marginBottom={2}>
+				<Heading fontSize='5xl' marginY={4}>
 					{game.name}
 				</Heading>
 				<ExpandableText>{game.description_raw}</ExpandableText>

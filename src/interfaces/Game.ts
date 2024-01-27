@@ -15,4 +15,5 @@ export default interface Game {
 	publishers: Publisher[];
 	playtime: number;
 	released: string;
+	website: string;
 }

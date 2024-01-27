@@ -23,7 +23,6 @@ const ExpandableText = ({ children }: Props) => {
 				padding={1}
 				marginLeft={1}
 				fontWeight='bold'
-				colorScheme='yellow'
 				variant='ghost'
 				onClick={() => setExpanded(!expanded)}
 			>

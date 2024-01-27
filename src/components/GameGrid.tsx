@@ -12,8 +12,6 @@ const GameGrid = () => {
 
 	if (error) return <Text>{error.message}</Text>;
 
-	console.log(data);
-
 	const fetchedGameCount =
 		data?.pages.reduce((total, page) => total + page.results.length, 0) || 0;
 

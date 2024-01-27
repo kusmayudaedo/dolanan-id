@@ -5,14 +5,13 @@ import NavBar from '../components/NavBar';
 import useGameQueryStore from '../store';
 
 const Layout = () => {
-	const resetGameQuery = useGameQueryStore((s) => s.resetGameQuery);
 	const navigate = useNavigate();
+	const resetGameQuery = useGameQueryStore((s) => s.resetGameQuery);
 
 	const onClickAllGames = () => {
 		navigate('/');
 		resetGameQuery();
 	};
-
 	return (
 		<Grid
 			padding={5}

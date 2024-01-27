@@ -13,12 +13,14 @@ import { MdPhoneIphone } from 'react-icons/md';
 import { SiNintendo } from 'react-icons/si';
 import Platform from '../interfaces/Platform';
 import useGameQueryStore from '../store';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
 	platforms: Platform[];
 }
 
 const PlatformIconList = ({ platforms }: Props) => {
+	const navigate = useNavigate();
 	const iconMap: { [key: string]: IconType } = {
 		pc: FaWindows,
 		playstation: FaPlaystation,
@@ -36,6 +38,7 @@ const PlatformIconList = ({ platforms }: Props) => {
 
 	const onClickPlatform = (platformId: number) => {
 		setSelectedPlatformId(platformId);
+		navigate('/');
 	};
 
 	return (
