@@ -10,10 +10,13 @@ const GameHeading = () => {
 	const platformId = useGameQueryStore((s) => s.gameQuery.platformId);
 	const platform = usePlatform(platformId);
 
+	const searchText = useGameQueryStore((s) => s.gameQuery.searchText);
+
 	const heading = `${platform?.name || ''} ${genre?.name || ''} Games`;
+
 	return (
 		<Heading as='h1' mb={5} fontSize='6xl'>
-			{heading}
+			{searchText ? `Games search : ${searchText}` : heading}
 		</Heading>
 	);
 };
