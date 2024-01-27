@@ -12,6 +12,7 @@ import {
 import { MdPhoneIphone } from 'react-icons/md';
 import { SiNintendo } from 'react-icons/si';
 import Platform from '../interfaces/Platform';
+import useGameQueryStore from '../store';
 
 interface Props {
 	platforms: Platform[];
@@ -30,6 +31,13 @@ const PlatformIconList = ({ platforms }: Props) => {
 		web: BsGlobe,
 	};
 	const limitPlatform = 5;
+
+	const setSelectedPlatformId = useGameQueryStore((s) => s.setPlatformId);
+
+	const onClickPlatform = (platformId: number) => {
+		setSelectedPlatformId(platformId);
+	};
+
 	return (
 		<HStack marginY={1}>
 			{platforms.length > limitPlatform ? (
@@ -40,6 +48,8 @@ const PlatformIconList = ({ platforms }: Props) => {
 							fontWeight='bold'
 							boxSize='16px'
 							key={platform.id}
+							cursor='pointer'
+							onClick={() => onClickPlatform(platform.id)}
 						/>
 					))}
 					<Text fontWeight='bold'>+{platforms.length - limitPlatform}</Text>
@@ -51,6 +61,8 @@ const PlatformIconList = ({ platforms }: Props) => {
 						fontWeight='bold'
 						boxSize='16px'
 						key={platform.id}
+						cursor='pointer'
+						onClick={() => onClickPlatform(platform.id)}
 					/>
 				))
 			)}

@@ -13,4 +13,6 @@ export default interface Game {
 	metacritic: number;
 	rating_top: number;
 	publishers: Publisher[];
+	playtime: number;
+	released: string;
 }

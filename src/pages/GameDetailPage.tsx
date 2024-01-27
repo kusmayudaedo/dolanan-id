@@ -1,10 +1,21 @@
-import { GridItem, Heading, SimpleGrid, Spinner } from '@chakra-ui/react';
+import {
+	Box,
+	Button,
+	GridItem,
+	HStack,
+	Heading,
+	SimpleGrid,
+	Spinner,
+	Text,
+} from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
 import ExpandableText from '../components/ExpandableText';
 import GameAttributes from '../components/GameAttributes';
 import useGame from '../hooks/useGame';
 import GameTrailer from '../components/GameTrailer';
 import GameScreenshot from '../components/GameScreenshot';
+import PlatformIconList from '../components/PlatformIconList';
+import moment from 'moment';
 
 const GameDetailPage = () => {
 	const { slug } = useParams();
@@ -17,11 +28,25 @@ const GameDetailPage = () => {
 
 	// !game used so we don't need optional chaining in mark up
 	if (error || !game) throw error;
-
+	console.log(game.id);
 	return (
-		<SimpleGrid columns={{ base: 1, md: 2 }} spacing={4}>
+		<SimpleGrid columns={{ base: 1, lg: 2 }} spacing={4}>
 			<GridItem>
-				<Heading fontSize='3xl' marginBottom={2}>
+				<HStack>
+					<Box backgroundColor='white' paddingX={2}>
+						<Text color='black'>
+							{moment(game.released).format('MMM DD, YYYY').toUpperCase()}
+						</Text>
+					</Box>
+					<PlatformIconList
+						platforms={game.parent_platforms.map((p) => p.platform)}
+					/>
+					<Text color='gray.500'>
+						AVERAGE PLAY TIME : {game.playtime} HOURS
+					</Text>
+				</HStack>
+
+				<Heading fontSize='5xl' marginBottom={2}>
 					{game.name}
 				</Heading>
 				<ExpandableText>{game.description_raw}</ExpandableText>

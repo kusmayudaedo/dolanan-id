@@ -1,7 +1,7 @@
-import { SimpleGrid, Text } from '@chakra-ui/react';
+import { Badge, HStack, SimpleGrid, Text, Wrap } from '@chakra-ui/react';
 import Game from '../interfaces/Game';
-import CriticScore from './CriticScore';
 import DefinitionItem from './DefinitionItem';
+import moment from 'moment';
 
 interface Props {
 	game: Game;
@@ -9,27 +9,47 @@ interface Props {
 
 const GameAttributes = ({ game }: Props) => {
 	return (
-		<SimpleGrid columns={2} as='dl'>
+		<SimpleGrid columns={{ base: 1, md: 2 }} as='dl'>
 			<DefinitionItem term='Platforms'>
-				{game.parent_platforms?.map(({ platform }) => (
-					<Text fontSize='lg' key={platform.id}>
-						{platform.name}
-					</Text>
-				))}
+				<Wrap>
+					{game.parent_platforms?.map(({ platform }, idx) => (
+						<Text fontSize='xl' key={platform.id} whiteSpace='nowrap'>
+							{idx === game.parent_platforms.length - 1
+								? `${platform.name}`
+								: `${platform.name},`}
+						</Text>
+					))}
+				</Wrap>
 			</DefinitionItem>
 			<DefinitionItem term='Metascore'>
-				<CriticScore score={game.metacritic} />
+				<Badge
+					fontSize='2xl'
+					paddingX={2}
+					borderRadius='4px'
+					colorScheme='green'
+				>
+					{game.metacritic}
+				</Badge>
 			</DefinitionItem>
 			<DefinitionItem term='Genres'>
-				{game.genres.map((genre) => (
-					<Text fontSize='lg' key={genre.id}>
-						{genre.name}
+				<HStack>
+					{game.genres.map((genre) => (
+						<Text fontSize='xl' key={genre.id}>
+							{genre.name}
+						</Text>
+					))}
+				</HStack>
+			</DefinitionItem>
+			<DefinitionItem term='Released date'>
+				{
+					<Text fontSize='xl'>
+						{moment(game.released).format('MMM DD, YYYY')}
 					</Text>
-				))}
+				}
 			</DefinitionItem>
 			<DefinitionItem term='Publishers'>
 				{game.publishers.map((publisher) => (
-					<Text fontSize='lg' key={publisher.id}>
+					<Text fontSize='xl' key={publisher.id}>
 						{publisher.name}
 					</Text>
 				))}

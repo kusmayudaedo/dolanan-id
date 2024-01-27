@@ -15,9 +15,11 @@ const GameHeading = () => {
 	const heading = `${platform?.name || ''} ${genre?.name || ''} Games`;
 
 	return (
-		<Heading as='h1' mb={5} fontSize='6xl'>
-			{searchText ? `Games search : ${searchText}` : heading}
-		</Heading>
+		<>
+			<Heading as='h1' mb={5} fontSize='6xl'>
+				{searchText ? `Games search : ${searchText}` : heading}
+			</Heading>
+		</>
 	);
 };
 

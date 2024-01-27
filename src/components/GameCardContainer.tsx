@@ -8,7 +8,6 @@ interface Props {
 const GameCardContainer = ({ children }: Props) => {
 	return (
 		<Box
-			cursor='pointer'
 			rounded={10}
 			overflow='hidden'
 			_hover={{
