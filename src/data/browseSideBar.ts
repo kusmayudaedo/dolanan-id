@@ -7,6 +7,7 @@ const browseItem = [
 	{ slug: 'platforms', name: 'Platforms', icon: IoGameControllerOutline },
 	{ slug: 'stores', name: 'Stores', icon: FaDownload },
 	{ slug: 'publishers', name: 'Publishers', icon: LiaDoorOpenSolid },
+	{ slug: 'tags', name: 'Tags', icon: FaHashtag },
 ];
 
 export default browseItem;

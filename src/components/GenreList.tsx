@@ -16,6 +16,17 @@ const GenreList = () => {
 	const { data, isLoading, error } = useGenres();
 	const selectedGenreId = useGameQueryStore((s) => s.gameQuery.genreId);
 	const setSelectedGenreId = useGameQueryStore((s) => s.setGenreId);
+	const {
+		setParentPlatformId,
+		setPlatformId,
+		setPublisherId,
+		setPublisherName,
+		setStoreId,
+		setStoreName,
+		setTagId,
+		setTagName,
+	} = useGameQueryStore();
+
 	const navigate = useNavigate();
 
 	if (error) return null;
@@ -36,6 +47,14 @@ const GenreList = () => {
 							<Button
 								onClick={() => {
 									setSelectedGenreId(genre.id);
+									setParentPlatformId(undefined);
+									setPlatformId(undefined);
+									setPublisherId(undefined);
+									setPublisherName(undefined);
+									setStoreId(undefined);
+									setStoreName(undefined);
+									setTagId(undefined);
+									setTagName(undefined);
 									navigate('/');
 								}}
 								variant='link'

@@ -20,6 +20,7 @@ const useGames = () => {
 					search: gameQuery.searchText,
 					publishers: gameQuery.publisherId,
 					stores: gameQuery.storeId,
+					tags: gameQuery.tagId,
 					page: pageParam,
 				},
 			}),

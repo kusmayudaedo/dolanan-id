@@ -27,6 +27,7 @@ const GameDetailPage = () => {
 	const resetGameQuery = useGameQueryStore((s) => s.resetGameQuery);
 	useEffect(resetGameQuery, []);
 
+	console.log(game);
 	if (isLoading) return <Spinner />;
 
 	// !game used so we don't need optional chaining in mark up

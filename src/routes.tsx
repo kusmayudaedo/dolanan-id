@@ -7,6 +7,7 @@ import GenresPage from './pages/GenresPage';
 import PlatformsPage from './pages/PlatformsPage';
 import PublishersPage from './pages/PublishersPage';
 import StoresPage from './pages/StoresPage';
+import TagsPage from './pages/TagsPage';
 
 const router = createBrowserRouter([
 	{
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
 			{ path: 'platforms', element: <PlatformsPage /> },
 			{ path: 'publishers', element: <PublishersPage /> },
 			{ path: 'stores', element: <StoresPage /> },
+			{ path: 'tags', element: <TagsPage /> },
 		],
 	},
 ]);
