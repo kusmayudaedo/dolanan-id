@@ -22,6 +22,8 @@ const GameAttributes = ({ game }: Props) => {
 	const setSelectedGenreId = useGameQueryStore((s) => s.setGenreId);
 	const setSelectedPublisherId = useGameQueryStore((s) => s.setPublisherId);
 	const setSelectedPublisherName = useGameQueryStore((s) => s.setPublisherName);
+	const setSelectedTagId = useGameQueryStore((s) => s.setTagId);
+	const setSelectedTagName = useGameQueryStore((s) => s.setTagName);
 
 	const onClickPlatform = (platformId: number) => {
 		setSelectedPlatformId(platformId);
@@ -38,6 +40,13 @@ const GameAttributes = ({ game }: Props) => {
 		setSelectedPublisherName(publisherName);
 		navigate(`/`);
 	};
+
+	const onClickTag = (tagId: number, tagName: string) => {
+		setSelectedTagId(tagId);
+		setSelectedTagName(tagName);
+		navigate(`/`);
+	};
+
 	return (
 		<>
 			<SimpleGrid columns={{ base: 1, md: 2 }} as='dl'>
@@ -113,6 +122,23 @@ const GameAttributes = ({ game }: Props) => {
 				<Link to={game.website} target='_blank'>
 					<Text fontSize='xl'>{game.website}</Text>
 				</Link>
+			</DefinitionItem>
+			<DefinitionItem term='#Tags'>
+				<Wrap>
+					{game.tags?.map((tag, idx) => (
+						<Button
+							variant='link'
+							key={tag.id}
+							onClick={() => onClickTag(tag.id, tag.name)}
+						>
+							<Text fontSize='xl' whiteSpace='nowrap'>
+								{idx === game.parent_platforms.length - 1
+									? `${tag.name}`
+									: `${tag.name},`}
+							</Text>
+						</Button>
+					))}
+				</Wrap>
 			</DefinitionItem>
 		</>
 	);

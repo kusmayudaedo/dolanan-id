@@ -12,6 +12,7 @@ const StoresPage = () => {
 
 	if (error) throw error;
 
+	console.log(data);
 	return (
 		<Stack spacing={4}>
 			<Heading fontSize='7xl'>Stores</Heading>

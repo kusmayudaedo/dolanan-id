@@ -7,7 +7,6 @@ interface Props {
 
 const GameScreenshot = ({ gameId }: Props) => {
 	const { data, isLoading, error } = useScreenshots(gameId);
-	console.log(data);
 
 	if (isLoading) return null;
 
@@ -16,7 +15,7 @@ const GameScreenshot = ({ gameId }: Props) => {
 	return (
 		<SimpleGrid columns={{ base: 1, md: 2 }} spacing={4}>
 			{data?.results.map((screenshot) => (
-				<Image src={screenshot.image} key={screenshot.id} />
+				<Image src={screenshot.image} key={screenshot.id} loading='lazy' />
 			))}
 		</SimpleGrid>
 	);

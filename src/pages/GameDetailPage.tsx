@@ -1,5 +1,6 @@
 import {
 	Box,
+	Button,
 	Flex,
 	GridItem,
 	Heading,
@@ -17,6 +18,7 @@ import PlatformIconList from '../components/PlatformIconList';
 import moment from 'moment';
 import { useEffect } from 'react';
 import useGameQueryStore from '../store';
+import BuyCard from '../components/BuyCard';
 
 const GameDetailPage = () => {
 	const { slug } = useParams();
@@ -27,7 +29,6 @@ const GameDetailPage = () => {
 	const resetGameQuery = useGameQueryStore((s) => s.resetGameQuery);
 	useEffect(resetGameQuery, []);
 
-	console.log(game);
 	if (isLoading) return <Spinner />;
 
 	// !game used so we don't need optional chaining in mark up
@@ -59,6 +60,7 @@ const GameDetailPage = () => {
 			<GridItem>
 				<GameTrailer gameId={game.id} />
 				<GameScreenshot gameId={game.id} />
+				<BuyCard stores={game.stores.map((s) => s.store)} />
 			</GridItem>
 		</SimpleGrid>
 	);
