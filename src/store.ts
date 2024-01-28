@@ -3,6 +3,7 @@ import { create } from 'zustand';
 interface GameQuery {
 	genreId?: number | undefined;
 	parentPlatformId?: number | undefined;
+	platformId?: number | undefined;
 	sortOrder?: string;
 	searchText?: string | undefined;
 	publisherId?: number | undefined;
@@ -13,6 +14,7 @@ interface GameQueryStore {
 	setSearchText: (searchText: string | undefined) => void;
 	setGenreId: (genreId: number | undefined) => void;
 	setParentPlatformId: (parentPlatformId: number | undefined) => void;
+	setPlatformId: (platformId: number | undefined) => void;
 	setSortOrder: (sortOrder: string) => void;
 	setPublisherId: (publisherId: number | undefined) => void;
 	resetGameQuery: () => void;
@@ -36,6 +38,10 @@ const useGameQueryStore = create<GameQueryStore>((set) => ({
 	setParentPlatformId: (parentPlatformId) =>
 		set((store) => ({
 			gameQuery: { ...store.gameQuery, parentPlatformId: parentPlatformId },
+		})),
+	setPlatformId: (platformId) =>
+		set((store) => ({
+			gameQuery: { ...store.gameQuery, platformId: platformId },
 		})),
 	setSortOrder: (sortOrder) =>
 		set((store) => ({

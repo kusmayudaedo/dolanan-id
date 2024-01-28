@@ -17,31 +17,39 @@ const PlatformSelector = () => {
 	const selectedPlatformId = useGameQueryStore(
 		(s) => s.gameQuery.parentPlatformId
 	);
-	const setSelectedPlatformId = useGameQueryStore((s) => s.setParentPlatformId);
+	const setSelectedParentPlatformId = useGameQueryStore(
+		(s) => s.setParentPlatformId
+	);
+	const setSelectedPlatformId = useGameQueryStore((s) => s.setPlatformId);
 
 	const { data, error } = useParentPlatforms();
-	const platform = useParentPlatform(selectedPlatformId);
+	const parentPlatform = useParentPlatform(selectedPlatformId);
 	if (error) return null;
 	return (
 		<Menu isLazy>
 			<MenuButton as={Button} rightIcon={<BsChevronDown />}>
-				{platform?.name || 'Platforms'}
+				{parentPlatform?.name || 'Platforms'}
 			</MenuButton>
 			<MenuList>
-				<MenuItem onClick={() => setSelectedPlatformId(undefined)}>
+				<MenuItem
+					onClick={() => {
+						setSelectedParentPlatformId(undefined);
+						setSelectedPlatformId(undefined);
+					}}
+				>
 					<Text as='em' color='tomato'>
 						Clear
 					</Text>
 				</MenuItem>
-				{data?.results.map((platform) => (
+				{data?.results.map((parentPlatform) => (
 					<MenuItem
-						key={platform.id}
-						onClick={() => setSelectedPlatformId(platform.id)}
+						key={parentPlatform.id}
+						onClick={() => setSelectedParentPlatformId(parentPlatform.id)}
 					>
 						<HStack width='100%' paddingX={1} justifyContent='space-between'>
-							<Text>{platform.name}</Text>
+							<Text>{parentPlatform.name}</Text>
 							<Text color='#33ff6d' fontSize='small'>
-								{platform.id === selectedPlatformId ? <FaCheck /> : ''}
+								{parentPlatform.id === selectedPlatformId ? <FaCheck /> : ''}
 							</Text>
 						</HStack>
 					</MenuItem>

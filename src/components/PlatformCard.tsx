@@ -20,7 +20,7 @@ interface Props {
 }
 
 const PlatformCard = ({ platform }: Props) => {
-	const setSelectedPlatformId = useGameQueryStore((s) => s.setParentPlatformId);
+	const setSelectedPlatformId = useGameQueryStore((s) => s.setPlatformId);
 	const navigate = useNavigate();
 	const topThreeGame = platform.games?.slice(0, 3);
 	return (
