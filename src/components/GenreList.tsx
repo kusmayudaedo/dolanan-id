@@ -3,7 +3,6 @@ import {
 	List,
 	ListItem,
 	Image,
-	Spinner,
 	Heading,
 	Button,
 } from '@chakra-ui/react';
@@ -19,7 +18,7 @@ const GenreList = () => {
 	const navigate = useNavigate();
 
 	if (error) return null;
-	if (isLoading) return <Spinner />;
+	if (isLoading) return null;
 	return (
 		<>
 			<Heading mb={3} fontSize='3xl'>

@@ -1,9 +1,13 @@
-import { Heading, SimpleGrid } from '@chakra-ui/react';
+import { Heading, SimpleGrid, Spinner } from '@chakra-ui/react';
 import GenreCard from '../components/GenreCard';
 import useGenres from '../hooks/useGenres';
 
 const GenresPage = () => {
 	const { data, isLoading, error } = useGenres();
+
+	if (isLoading) return <Spinner />;
+
+	if (error) throw error;
 
 	return (
 		<>

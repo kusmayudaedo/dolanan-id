@@ -11,12 +11,12 @@ import {
 } from 'react-icons/fa';
 import { MdPhoneIphone } from 'react-icons/md';
 import { SiNintendo } from 'react-icons/si';
-import Platform from '../interfaces/Platform';
+import ParentPlatform from '../interfaces/ParentPlatform';
 import useGameQueryStore from '../store';
 import { useNavigate } from 'react-router-dom';
 
 interface Props {
-	platforms: Platform[];
+	platforms: ParentPlatform[];
 }
 
 const PlatformIconList = ({ platforms }: Props) => {

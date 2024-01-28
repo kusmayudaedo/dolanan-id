@@ -8,17 +8,17 @@ import {
 	HStack,
 } from '@chakra-ui/react';
 import { BsChevronDown } from 'react-icons/bs';
-import usePlatforms from '../hooks/usePlatforms';
+import useParentPlatforms from '../hooks/useParentPlatforms';
 import { FaCheck } from 'react-icons/fa';
-import usePlatform from '../hooks/usePlatform';
+import useParentPlatform from '../hooks/useParentPlatform';
 import useGameQueryStore from '../store';
 
 const PlatformSelector = () => {
 	const selectedPlatformId = useGameQueryStore((s) => s.gameQuery.platformId);
 	const setSelectedPlatformId = useGameQueryStore((s) => s.setPlatformId);
 
-	const { data, error } = usePlatforms();
-	const platform = usePlatform(selectedPlatformId);
+	const { data, error } = useParentPlatforms();
+	const platform = useParentPlatform(selectedPlatformId);
 	if (error) return null;
 	return (
 		<Menu isLazy>
