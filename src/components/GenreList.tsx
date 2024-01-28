@@ -6,6 +6,7 @@ import {
 	Heading,
 	Button,
 	Text,
+	Flex,
 } from '@chakra-ui/react';
 import useGenres from '../hooks/useGenres';
 import getCroppedImageUrl from '../services/image-url';
@@ -37,7 +38,7 @@ const GenreList = () => {
 			<List>
 				{data?.results.map((genre) => (
 					<ListItem key={genre.id} paddingY='5px' marginY={1}>
-						<HStack>
+						<Flex gap='8px' marginY={1}>
 							<Image
 								src={getCroppedImageUrl(genre.image_background)}
 								boxSize='32px'
@@ -68,7 +69,7 @@ const GenreList = () => {
 									{genre.name}
 								</Text>
 							</Button>
-						</HStack>
+						</Flex>
 					</ListItem>
 				))}
 			</List>

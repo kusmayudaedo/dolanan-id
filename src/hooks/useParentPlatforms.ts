@@ -1,6 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
 import ms from 'ms';
-import platforms from '../data/platforms';
 import ParentPlatform from '../interfaces/ParentPlatform';
 import APIClient from '../services/api-client';
 
@@ -11,7 +10,6 @@ const useParentPlatforms = () =>
 		queryKey: ['parent-platforms'],
 		queryFn: apiClient.getAll,
 		staleTime: ms('24h'),
-		initialData: platforms,
 	});
 
 export default useParentPlatforms;

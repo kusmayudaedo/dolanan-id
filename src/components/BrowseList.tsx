@@ -7,19 +7,24 @@ import {
 	ListItem,
 	Text,
 } from '@chakra-ui/react';
-import browseItem from '../data/browseSideBar';
+import browseItem, { browseItemMap } from '../data/browseSideBar';
 import { Link } from 'react-router-dom';
 
 const BrowseList = () => {
-	const IconComponent = (icon: any) => <Icon as={icon} />;
 	return (
 		<>
 			<Heading>Browse</Heading>
 			<List>
 				{browseItem.map((item, idx) => (
 					<ListItem key={idx}>
-						<Flex alignItems='start' cursor='pointer' marginY={2}>
-							<Icon boxSize='36px'>{IconComponent(item.icon)}</Icon>
+						<Flex
+							alignItems='start'
+							cursor='pointer'
+							marginY={4}
+							gap='8px'
+							alignContent='center'
+						>
+							<Icon boxSize='28px' as={browseItemMap[item.slug]} />
 							<Link to={`/${item.slug}`}>
 								<Button variant='link' textAlign='left'>
 									<Text fontSize='2xl'> {item.name}</Text>

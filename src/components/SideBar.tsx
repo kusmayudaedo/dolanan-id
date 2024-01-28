@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import GenreList from './GenreList';
 import useGameQueryStore from '../store';
 import BrowseList from './BrowseList';
+import ParentPlatformList from './ParentPlatformList';
 
 const SideBar = () => {
 	const navigate = useNavigate();
@@ -20,6 +21,7 @@ const SideBar = () => {
 				</Heading>
 			</Link>
 			<BrowseList />
+			<ParentPlatformList />
 			<GenreList />
 		</Stack>
 	);
