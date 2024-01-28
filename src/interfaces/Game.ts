@@ -16,4 +16,5 @@ export default interface Game {
 	playtime: number;
 	released: string;
 	website: string;
+	added: number;
 }
