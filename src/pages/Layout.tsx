@@ -1,17 +1,9 @@
-import { Grid, GridItem, Heading, Show } from '@chakra-ui/react';
-import { Outlet, useNavigate } from 'react-router-dom';
-import GenreList from '../components/GenreList';
+import { Grid, GridItem, Show } from '@chakra-ui/react';
+import { Outlet } from 'react-router-dom';
 import NavBar from '../components/NavBar';
-import useGameQueryStore from '../store';
+import SideBar from '../components/SideBar';
 
 const Layout = () => {
-	const navigate = useNavigate();
-	const resetGameQuery = useGameQueryStore((s) => s.resetGameQuery);
-
-	const onClickAllGames = () => {
-		navigate('/');
-		resetGameQuery();
-	};
 	return (
 		<Grid
 			padding={5}
@@ -26,16 +18,7 @@ const Layout = () => {
 			</GridItem>
 			<Show above='lg'>
 				<GridItem area='aside'>
-					<Heading
-						as='button'
-						fontSize='3xl'
-						marginBottom={2}
-						cursor='pointer'
-						onClick={onClickAllGames}
-					>
-						All Games
-					</Heading>
-					<GenreList />
+					<SideBar />
 				</GridItem>
 			</Show>
 			<GridItem area='main' marginLeft={5}>
