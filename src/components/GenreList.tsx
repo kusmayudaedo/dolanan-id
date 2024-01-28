@@ -1,17 +1,16 @@
 import {
-	HStack,
+	Button,
+	Flex,
+	Heading,
+	Image,
 	List,
 	ListItem,
-	Image,
-	Heading,
-	Button,
 	Text,
-	Flex,
 } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 import useGenres from '../hooks/useGenres';
 import getCroppedImageUrl from '../services/image-url';
 import useGameQueryStore from '../store';
-import { useNavigate } from 'react-router-dom';
 
 const GenreList = () => {
 	const { data, isLoading, error } = useGenres();

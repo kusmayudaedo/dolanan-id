@@ -1,6 +1,5 @@
 import {
 	Box,
-	Button,
 	Flex,
 	GridItem,
 	Heading,
@@ -8,17 +7,17 @@ import {
 	Spinner,
 	Text,
 } from '@chakra-ui/react';
-import { useParams } from 'react-router-dom';
-import ExpandableText from '../components/ExpandableText';
-import GameAttributes from '../components/GameAttributes';
-import useGame from '../hooks/useGame';
-import GameTrailer from '../components/GameTrailer';
-import GameScreenshot from '../components/GameScreenshot';
-import PlatformIconList from '../components/PlatformIconList';
 import moment from 'moment';
 import { useEffect } from 'react';
-import useGameQueryStore from '../store';
+import { useParams } from 'react-router-dom';
 import BuyCard from '../components/BuyCard';
+import ExpandableText from '../components/ExpandableText';
+import GameAttributes from '../components/GameAttributes';
+import GameScreenshot from '../components/GameScreenshot';
+import GameTrailer from '../components/GameTrailer';
+import PlatformIconList from '../components/PlatformIconList';
+import useGame from '../hooks/useGame';
+import useGameQueryStore from '../store';
 
 const GameDetailPage = () => {
 	const { slug } = useParams();

@@ -1,16 +1,9 @@
-import {
-	Badge,
-	HStack,
-	SimpleGrid,
-	Text,
-	Wrap,
-	Button,
-} from '@chakra-ui/react';
-import Game from '../interfaces/Game';
-import DefinitionItem from './DefinitionItem';
+import { Badge, Button, SimpleGrid, Text, Wrap } from '@chakra-ui/react';
 import moment from 'moment';
-import useGameQueryStore from '../store';
 import { Link, useNavigate } from 'react-router-dom';
+import Game from '../interfaces/Game';
+import useGameQueryStore from '../store';
+import DefinitionItem from './DefinitionItem';
 
 interface Props {
 	game: Game;
