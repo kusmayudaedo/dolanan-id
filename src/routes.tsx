@@ -5,6 +5,7 @@ import GamePage from './pages/GamePage';
 import Layout from './pages/Layout';
 import GenresPage from './pages/GenresPage';
 import PlatformsPage from './pages/PlatformsPage';
+import PublishersPage from './pages/PublishersPage';
 
 const router = createBrowserRouter([
 	{
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
 			{ path: 'game/:slug', element: <GameDetailPage /> },
 			{ path: 'genres', element: <GenresPage /> },
 			{ path: 'platforms', element: <PlatformsPage /> },
+			{ path: 'publishers', element: <PublishersPage /> },
 		],
 	},
 ]);

@@ -7,6 +7,7 @@ const Layout = () => {
 	return (
 		<Grid
 			padding={5}
+			paddingX={10}
 			templateAreas={{
 				base: `"nav" "main"`,
 				lg: `"nav nav" "aside main"`,

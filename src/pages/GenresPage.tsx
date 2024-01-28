@@ -1,4 +1,4 @@
-import { Heading, SimpleGrid, Spinner } from '@chakra-ui/react';
+import { Heading, SimpleGrid, Spinner, Stack } from '@chakra-ui/react';
 import GenreCard from '../components/GenreCard';
 import useGenres from '../hooks/useGenres';
 
@@ -10,14 +10,14 @@ const GenresPage = () => {
 	if (error) throw error;
 
 	return (
-		<>
-			<Heading fontSize='5xl'>Genres</Heading>
+		<Stack spacing={4}>
+			<Heading fontSize='7xl'>Genres</Heading>
 			<SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} spacing={6} mt={2}>
 				{data?.results.map((genre) => (
 					<GenreCard genre={genre} key={genre.id} />
 				))}
 			</SimpleGrid>
-		</>
+		</Stack>
 	);
 };
 
