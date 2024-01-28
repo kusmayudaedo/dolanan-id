@@ -4,9 +4,9 @@ import { LiaDoorOpenSolid } from 'react-icons/lia';
 
 const browseItem = [
 	{ slug: 'genres', name: 'Genres', icon: FaGhost },
-	{ slug: 'platform', name: 'Platform', icon: IoGameControllerOutline },
+	{ slug: 'platforms', name: 'Platforms', icon: IoGameControllerOutline },
 	{ slug: 'stores', name: 'Stores', icon: FaDownload },
-	{ slug: 'publisher', name: 'Publisher', icon: LiaDoorOpenSolid },
+	{ slug: 'publishers', name: 'Publishers', icon: LiaDoorOpenSolid },
 	{ slug: 'tags', name: 'Tags', icon: FaHashtag },
 ];
 

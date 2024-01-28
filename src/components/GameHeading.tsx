@@ -6,7 +6,7 @@ import useGameQueryStore from '../store';
 const GameHeading = () => {
 	const { gameQuery } = useGameQueryStore();
 	const genre = useGenre(gameQuery.genreId);
-	const platform = useParentPlatform(gameQuery.platformId);
+	const platform = useParentPlatform(gameQuery.parentPlatformId);
 	const searchText = gameQuery.searchText;
 
 	const heading = `${platform?.name || ''} ${genre?.name || ''}  Games`;

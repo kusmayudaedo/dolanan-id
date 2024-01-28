@@ -14,8 +14,10 @@ import useParentPlatform from '../hooks/useParentPlatform';
 import useGameQueryStore from '../store';
 
 const PlatformSelector = () => {
-	const selectedPlatformId = useGameQueryStore((s) => s.gameQuery.platformId);
-	const setSelectedPlatformId = useGameQueryStore((s) => s.setPlatformId);
+	const selectedPlatformId = useGameQueryStore(
+		(s) => s.gameQuery.parentPlatformId
+	);
+	const setSelectedPlatformId = useGameQueryStore((s) => s.setParentPlatformId);
 
 	const { data, error } = useParentPlatforms();
 	const platform = useParentPlatform(selectedPlatformId);

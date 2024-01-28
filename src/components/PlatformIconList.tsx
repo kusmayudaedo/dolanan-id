@@ -34,7 +34,7 @@ const PlatformIconList = ({ platforms }: Props) => {
 	};
 	const limitPlatform = 5;
 
-	const setSelectedPlatformId = useGameQueryStore((s) => s.setPlatformId);
+	const setSelectedPlatformId = useGameQueryStore((s) => s.setParentPlatformId);
 
 	const onClickPlatform = (platformId: number) => {
 		setSelectedPlatformId(platformId);

@@ -18,7 +18,7 @@ interface Props {
 
 const GameAttributes = ({ game }: Props) => {
 	const navigate = useNavigate();
-	const setSelectedPlatformId = useGameQueryStore((s) => s.setPlatformId);
+	const setSelectedPlatformId = useGameQueryStore((s) => s.setParentPlatformId);
 	const setSelectedGenreId = useGameQueryStore((s) => s.setGenreId);
 	const setSelectedPublisherId = useGameQueryStore((s) => s.setPublisherId);
 
