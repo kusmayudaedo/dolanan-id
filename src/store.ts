@@ -4,13 +4,13 @@ interface GameQuery {
 	genreId?: number | undefined;
 	platformId?: number | undefined;
 	sortOrder?: string;
-	searchText?: string;
+	searchText?: string | undefined;
 	publisherId?: number | undefined;
 }
 
 interface GameQueryStore {
 	gameQuery: GameQuery;
-	setSearchText: (searchText: string) => void;
+	setSearchText: (searchText: string | undefined) => void;
 	setGenreId: (genreId: number | undefined) => void;
 	setPlatformId: (platformId: number | undefined) => void;
 	setSortOrder: (sortOrder: string) => void;

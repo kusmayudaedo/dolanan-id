@@ -32,9 +32,9 @@ const GameAttributes = ({ game }: Props) => {
 		navigate('/');
 	};
 
-	const onClickPublisher = (publisherId: number, publisherSlug: string) => {
+	const onClickPublisher = (publisherId: number) => {
 		setSelectedPublisherId(publisherId);
-		navigate(`/publisher/${publisherSlug}`);
+		navigate(`/`);
 	};
 	return (
 		<>
@@ -96,7 +96,7 @@ const GameAttributes = ({ game }: Props) => {
 							marginRight={1}
 							variant='link'
 							key={publisher.id}
-							onClick={() => onClickPublisher(publisher.id, publisher.slug)}
+							onClick={() => onClickPublisher(publisher.id)}
 						>
 							<Text fontSize='xl'>
 								{idx === game.publishers.length - 1
