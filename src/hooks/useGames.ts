@@ -19,6 +19,7 @@ const useGames = () => {
 					ordering: gameQuery.sortOrder,
 					search: gameQuery.searchText,
 					publishers: gameQuery.publisherId,
+					stores: gameQuery.storeId,
 					page: pageParam,
 				},
 			}),

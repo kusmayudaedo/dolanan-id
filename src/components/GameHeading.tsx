@@ -10,11 +10,14 @@ const GameHeading = () => {
 	const parentPlatform = useParentPlatform(gameQuery.parentPlatformId);
 	const platform = usePlatform(gameQuery.platformId);
 	const publisherName = gameQuery.publisherName;
+	const storeName = gameQuery.storeName
+		? `Available at ${gameQuery.storeName}`
+		: '';
 	const searchText = gameQuery.searchText;
 
 	const heading = `${publisherName || ''} ${
 		parentPlatform?.name || platform?.name || ''
-	} ${genre?.name || ''}  Games`;
+	} ${genre?.name || ''}  Games ${storeName}`;
 
 	return (
 		<>

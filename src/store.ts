@@ -8,6 +8,8 @@ interface GameQuery {
 	searchText?: string | undefined;
 	publisherId?: number | undefined;
 	publisherName?: string | undefined;
+	storeId?: number | undefined;
+	storeName?: string | undefined;
 }
 
 interface GameQueryStore {
@@ -19,6 +21,8 @@ interface GameQueryStore {
 	setSortOrder: (sortOrder: string) => void;
 	setPublisherId: (publisherId: number | undefined) => void;
 	setPublisherName: (publisherName: string | undefined) => void;
+	setStoreId: (storeId: number | undefined) => void;
+	setStoreName: (publisherName: string | undefined) => void;
 	resetGameQuery: () => void;
 }
 
@@ -56,6 +60,14 @@ const useGameQueryStore = create<GameQueryStore>((set) => ({
 	setPublisherName: (publisherName) =>
 		set((store) => ({
 			gameQuery: { ...store.gameQuery, publisherName },
+		})),
+	setStoreId: (storeId) =>
+		set((store) => ({
+			gameQuery: { ...store.gameQuery, storeId },
+		})),
+	setStoreName: (storeName) =>
+		set((store) => ({
+			gameQuery: { ...store.gameQuery, storeName },
 		})),
 	resetGameQuery: () => set(() => ({ gameQuery: { sortOrder: '' } })),
 }));
