@@ -21,6 +21,7 @@ const GameAttributes = ({ game }: Props) => {
 	const setSelectedPlatformId = useGameQueryStore((s) => s.setParentPlatformId);
 	const setSelectedGenreId = useGameQueryStore((s) => s.setGenreId);
 	const setSelectedPublisherId = useGameQueryStore((s) => s.setPublisherId);
+	const setSelectedPublisherName = useGameQueryStore((s) => s.setPublisherName);
 
 	const onClickPlatform = (platformId: number) => {
 		setSelectedPlatformId(platformId);
@@ -32,8 +33,9 @@ const GameAttributes = ({ game }: Props) => {
 		navigate('/');
 	};
 
-	const onClickPublisher = (publisherId: number) => {
+	const onClickPublisher = (publisherId: number, publisherName: string) => {
 		setSelectedPublisherId(publisherId);
+		setSelectedPublisherName(publisherName);
 		navigate(`/`);
 	};
 	return (
@@ -96,7 +98,7 @@ const GameAttributes = ({ game }: Props) => {
 							marginRight={1}
 							variant='link'
 							key={publisher.id}
-							onClick={() => onClickPublisher(publisher.id)}
+							onClick={() => onClickPublisher(publisher.id, publisher.name)}
 						>
 							<Text fontSize='xl'>
 								{idx === game.publishers.length - 1

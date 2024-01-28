@@ -9,11 +9,12 @@ const GameHeading = () => {
 	const genre = useGenre(gameQuery.genreId);
 	const parentPlatform = useParentPlatform(gameQuery.parentPlatformId);
 	const platform = usePlatform(gameQuery.platformId);
+	const publisherName = gameQuery.publisherName;
 	const searchText = gameQuery.searchText;
 
-	const heading = `${parentPlatform?.name || platform?.name || ''} ${
-		genre?.name || ''
-	}  Games`;
+	const heading = `${publisherName || ''} ${
+		parentPlatform?.name || platform?.name || ''
+	} ${genre?.name || ''}  Games`;
 
 	return (
 		<>

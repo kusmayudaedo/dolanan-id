@@ -21,6 +21,7 @@ interface Props {
 
 const PublisherCard = ({ publisher }: Props) => {
 	const setSelectedPublisherId = useGameQueryStore((s) => s.setPublisherId);
+	const setPublisherName = useGameQueryStore((s) => s.setPublisherName);
 	const navigate = useNavigate();
 	const topThreeGame = publisher.games?.slice(0, 3);
 	return (
@@ -48,6 +49,7 @@ const PublisherCard = ({ publisher }: Props) => {
 								whiteSpace='normal'
 								onClick={() => {
 									setSelectedPublisherId(publisher.id);
+									setPublisherName(publisher.name);
 									navigate('/');
 								}}
 							>
