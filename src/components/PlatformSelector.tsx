@@ -12,8 +12,10 @@ import useParentPlatforms from '../hooks/useParentPlatforms';
 import { FaCheck } from 'react-icons/fa';
 import useParentPlatform from '../hooks/useParentPlatform';
 import useGameQueryStore from '../store';
+import { useNavigate } from 'react-router-dom';
 
 const PlatformSelector = () => {
+	const navigate = useNavigate();
 	const selectedPlatformId = useGameQueryStore(
 		(s) => s.gameQuery.parentPlatformId
 	);
@@ -21,10 +23,12 @@ const PlatformSelector = () => {
 		(s) => s.setParentPlatformId
 	);
 	const setSelectedPlatformId = useGameQueryStore((s) => s.setPlatformId);
-
+	const storeId = useGameQueryStore((s) => s.gameQuery.storeId);
 	const { data, error } = useParentPlatforms();
 	const parentPlatform = useParentPlatform(selectedPlatformId);
 	if (error) return null;
+	if (storeId) return null;
+
 	return (
 		<Menu isLazy>
 			<MenuButton as={Button} rightIcon={<BsChevronDown />}>
@@ -44,7 +48,10 @@ const PlatformSelector = () => {
 				{data?.results.map((parentPlatform) => (
 					<MenuItem
 						key={parentPlatform.id}
-						onClick={() => setSelectedParentPlatformId(parentPlatform.id)}
+						onClick={() => {
+							setSelectedParentPlatformId(parentPlatform.id);
+							navigate('/');
+						}}
 					>
 						<HStack width='100%' paddingX={1} justifyContent='space-between'>
 							<Text>{parentPlatform.name}</Text>

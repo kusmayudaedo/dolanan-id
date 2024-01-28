@@ -2,13 +2,17 @@ import { Heading, SimpleGrid, Spinner, Stack } from '@chakra-ui/react';
 import usePublishers from '../hooks/usePublishers';
 import PublisherCard from '../components/PublisherCard';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import React from 'react';
+import React, { useEffect } from 'react';
+import useGameQueryStore from '../store';
 
 const PublishersPage = () => {
 	const { data, isLoading, error, fetchNextPage, hasNextPage } =
 		usePublishers();
 	const fetchPublishersCount =
 		data?.pages.reduce((total, page) => total + page.results.length, 0) || 0;
+
+	const resetGameQuery = useGameQueryStore((s) => s.resetGameQuery);
+	useEffect(resetGameQuery, []);
 
 	if (isLoading) return <Spinner />;
 

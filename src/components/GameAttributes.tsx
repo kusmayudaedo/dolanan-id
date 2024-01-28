@@ -69,7 +69,7 @@ const GameAttributes = ({ game }: Props) => {
 					</Badge>
 				</DefinitionItem>
 				<DefinitionItem term='Genres'>
-					<HStack>
+					<Wrap>
 						{game.genres.map((genre, idx) => (
 							<Button
 								variant='link'
@@ -83,7 +83,7 @@ const GameAttributes = ({ game }: Props) => {
 								</Text>
 							</Button>
 						))}
-					</HStack>
+					</Wrap>
 				</DefinitionItem>
 				<DefinitionItem term='Released date'>
 					{

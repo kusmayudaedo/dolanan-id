@@ -1,9 +1,13 @@
 import { Heading, SimpleGrid, Spinner, Stack } from '@chakra-ui/react';
 import usePlatforms from '../hooks/usePlatforms';
 import PlatformCard from '../components/PlatformCard';
+import { useEffect } from 'react';
+import useGameQueryStore from '../store';
 
 const PlatformsPage = () => {
 	const { data, isLoading, error } = usePlatforms();
+	const resetGameQuery = useGameQueryStore((s) => s.resetGameQuery);
+	useEffect(resetGameQuery, []);
 
 	if (isLoading) return <Spinner />;
 

@@ -15,6 +15,8 @@ import GameTrailer from '../components/GameTrailer';
 import GameScreenshot from '../components/GameScreenshot';
 import PlatformIconList from '../components/PlatformIconList';
 import moment from 'moment';
+import { useEffect } from 'react';
+import useGameQueryStore from '../store';
 
 const GameDetailPage = () => {
 	const { slug } = useParams();
@@ -22,6 +24,8 @@ const GameDetailPage = () => {
 	slug! used to tell typescript that slug is never undefined, because if the slug is undefined we never go to this page, instead will return Error Page
 	 */
 	const { data: game, isLoading, error } = useGame(slug!);
+	const resetGameQuery = useGameQueryStore((s) => s.resetGameQuery);
+	useEffect(resetGameQuery, []);
 
 	if (isLoading) return <Spinner />;
 
