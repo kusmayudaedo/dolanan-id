@@ -1,9 +1,10 @@
-import { HStack, Image } from '@chakra-ui/react';
-import logo from '../assets/logo.png';
-import ColorModeSwitch from './ColorModeSwitch';
-import SearchInput from './SearchInput';
+import { HStack, Hide, Image } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
+import logo from '../assets/logo.png';
 import useGameQueryStore from '../store';
+import ColorModeSwitch from './ColorModeSwitch';
+import MenuBar from './MenuBar';
+import SearchInput from './SearchInput';
 
 const NavBar = () => {
 	const navigate = useNavigate();
@@ -24,6 +25,9 @@ const NavBar = () => {
 				/>
 				<SearchInput />
 				<ColorModeSwitch />
+				<Hide above='md'>
+					<MenuBar />
+				</Hide>
 			</HStack>
 		</>
 	);

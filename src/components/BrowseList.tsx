@@ -17,13 +17,7 @@ const BrowseList = () => {
 			<List>
 				{browseItem.map((item, idx) => (
 					<ListItem key={idx}>
-						<Flex
-							alignItems='start'
-							cursor='pointer'
-							marginY={4}
-							gap='8px'
-							alignContent='center'
-						>
+						<Flex alignItems='center' cursor='pointer' marginY={4} gap='8px'>
 							<Icon boxSize='28px' as={browseItemMap[item.slug]} />
 							<Link to={`/${item.slug}`}>
 								<Button variant='link' textAlign='left'>

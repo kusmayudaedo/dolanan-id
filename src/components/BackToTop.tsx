@@ -18,7 +18,7 @@ const BackToTop = () => {
 				transition: 'transform .2s ease-in-out',
 			}}
 		>
-			<Icon boxSize={20}>
+			<Icon boxSize={{ base: 12, lg: 20 }}>
 				<FaArrowCircleUp />
 			</Icon>
 		</Box>
