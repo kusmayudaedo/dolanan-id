@@ -25,7 +25,7 @@ const NavBar = () => {
 				/>
 				<SearchInput />
 				<ColorModeSwitch />
-				<Hide above='md'>
+				<Hide above='lg'>
 					<MenuBar />
 				</Hide>
 			</HStack>
